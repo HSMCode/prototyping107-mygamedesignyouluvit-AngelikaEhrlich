@@ -1351,6 +1351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  player: {fileID: 0}
 --- !u!114 &-6233336922601622392
 MonoBehaviour:
   m_ObjectHideFlags: 0

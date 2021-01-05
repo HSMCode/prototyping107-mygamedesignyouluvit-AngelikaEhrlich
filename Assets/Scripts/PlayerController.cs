@@ -10,14 +10,12 @@ public class PlayerController : MonoBehaviour
 
     float nextTimeToFire;
 
-    public int score;   //players score
-
     public GameObject projectilePrefab;
 
     // Start is called before the first frame update
     void Start()
     {
-        score = 0;
+
     }
 
     // Update is called once per frame
@@ -52,11 +50,4 @@ public class PlayerController : MonoBehaviour
             nextTimeToFire = Time.time + .2f;
     }
 
-    //ScorePoints will be called from the DetectCollisions Script when a collision occures
-    //between projectile and enemy
-    void ScorePoints()
-    {
-        //add points to the score
-        score += 1;
-    }
 }

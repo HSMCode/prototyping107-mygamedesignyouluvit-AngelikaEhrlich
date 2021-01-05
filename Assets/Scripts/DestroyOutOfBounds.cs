@@ -27,6 +27,7 @@ public class DestroyOutOfBounds : MonoBehaviour
         else if (transform.position.z < lowerBound)
         {   
             Destroy(gameObject);
+            KeepLives.lives -= 1;
         }
     }
 }
