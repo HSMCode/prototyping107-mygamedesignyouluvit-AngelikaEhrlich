@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DestroyOutOfBounds : MonoBehaviour
 {   
-    public GameObject GameOver;
+  //  public GameObject GameOver;
     private float topBound = 30;
     private float lowerBound = -1;
 
@@ -12,7 +12,7 @@ public class DestroyOutOfBounds : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameOver.SetActive(false);
+        //GameOver.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,17 +27,7 @@ public class DestroyOutOfBounds : MonoBehaviour
         else if (transform.position.z < lowerBound)
         {   
             Destroy(gameObject);
-            Debug.Log("Game Over!");
-            GameOver.SetActive(true);
         }
     }
-
-  void OnTriggerEnter(Collider other) 
-  {
-      if (other.gameObject.CompareTag("Enemy"))
-      {
-          GameOver.SetActive(true);
-      }
-  }
     
 }
