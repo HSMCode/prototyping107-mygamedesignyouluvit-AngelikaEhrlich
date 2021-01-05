@@ -3,7 +3,9 @@ guid: 953bc9ee953db3f44b76c071343f04db
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - snowball: {fileID: 8228216321296144326, guid: 5c7b8c0c8095ae646a62e47c12310d21,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
