@@ -1310,7 +1310,6 @@ GameObject:
   - component: {fileID: 475374}
   - component: {fileID: -3954242354063083549}
   - component: {fileID: -6233336922601622392}
-  - component: {fileID: 3333204656350182633}
   - component: {fileID: -7438569367506591160}
   - component: {fileID: 6941188183980541067}
   - component: {fileID: -6142266904684582443}
@@ -1352,7 +1351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  score: 0
 --- !u!114 &-6233336922601622392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1365,20 +1363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6415d0554c6ab3f4bb585ea12fc300b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3333204656350182633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 953bc9ee953db3f44b76c071343f04db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  snowball: {fileID: 8228216321296144326, guid: 5c7b8c0c8095ae646a62e47c12310d21,
-    type: 3}
 --- !u!65 &-7438569367506591160
 BoxCollider:
   m_ObjectHideFlags: 0

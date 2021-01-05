@@ -610,6 +610,7 @@ MonoBehaviour:
   horizontalInput: 0
   speed: 15
   xRange: 13
+  score: 0
   projectilePrefab: {fileID: 8228216321296144326, guid: 5c7b8c0c8095ae646a62e47c12310d21,
     type: 3}
 --- !u!114 &806452585
@@ -622,18 +623,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6415d0554c6ab3f4bb585ea12fc300b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &806452586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 806452580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 953bc9ee953db3f44b76c071343f04db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &963194225
@@ -733,6 +722,10 @@ PrefabInstance:
     - target: {fileID: 1155526852108386, guid: 38e49ff053f1e7143b935d61f1e5c506, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155526852108386, guid: 38e49ff053f1e7143b935d61f1e5c506, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4483427251375114, guid: 38e49ff053f1e7143b935d61f1e5c506, type: 3}
       propertyPath: m_LocalPosition.x

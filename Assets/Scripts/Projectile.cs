@@ -15,7 +15,18 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //move projectile
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag ("Enemy"))
+        {
+            Destroy(this.gameObject);
+            //remove the other object from the game
+            Destroy(other.gameObject);
+            //score points
+        }
+    }
 }
