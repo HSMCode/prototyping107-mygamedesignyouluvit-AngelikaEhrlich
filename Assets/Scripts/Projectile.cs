@@ -23,10 +23,12 @@ public class Projectile : MonoBehaviour
     {
         if (other.CompareTag ("Enemy"))
         {
+            //remove this object from the game
             Destroy(this.gameObject);
-            //remove the other object from the game
+            //but also remove the other object from the game
             Destroy(other.gameObject);
             //score points
+            KeepScore.score += 5;
         }
     }
 }
