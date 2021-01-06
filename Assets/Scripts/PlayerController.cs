@@ -22,15 +22,43 @@ public class PlayerController : MonoBehaviour
     public float reloadTime = 1f;
     private bool isReloading = false;
 
+    AudioSource snowsteps;
+    private bool isMoving = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
         currentAmmo = maxAmmo;
+
+        snowsteps = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
+    void Update()
+    {
+        //determines when the player is moving
+        if (horizontalInput != 0)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
+
+        //if the player is moving, play snowsteps sound
+        if (isMoving)
+        {
+            if (!snowsteps.isPlaying)
+                snowsteps.Play();
+        }
+        else
+        {
+            snowsteps.Stop();
+        }
+    }
+
     void FixedUpdate()
     {
         //movement
@@ -48,6 +76,7 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
 
+        //reloading
         if(isReloading)
         {
             return;
@@ -67,6 +96,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //shoot
     void Shoot()
     {
         nextTimeToFire = nextTimeToFire - myTime;
@@ -74,6 +104,7 @@ public class PlayerController : MonoBehaviour
         currentAmmo--;
     }
 
+    //reload
     IEnumerator Reload()
     {
         isReloading = true;
