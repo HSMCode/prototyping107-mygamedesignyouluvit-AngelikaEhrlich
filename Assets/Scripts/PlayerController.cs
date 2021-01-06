@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject projectilePrefab;
 
+    public GameObject GameOverPanel;
+    private bool canMove = true;
 
     [Header("Reload")]
 
@@ -32,11 +34,23 @@ public class PlayerController : MonoBehaviour
         currentAmmo = maxAmmo;
 
         snowsteps = GetComponent<AudioSource>();
+
+        canMove = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //determines whether the player is allowed to move or not
+        if (KeepLives.lives > 0)
+        {
+            canMove = true;
+        }
+        else
+        {
+            canMove = false;
+        }
+
         //determines when the player is moving
         if (horizontalInput != 0)
         {
@@ -57,13 +71,29 @@ public class PlayerController : MonoBehaviour
         {
             snowsteps.Stop();
         }
+
+        if (GameOverPanel.activeSelf)
+        {
+            //Debug.Log("gameoverpanel..");
+
+            canMove = false;
+
+            horizontalInput = 0;
+
+            currentAmmo = 0;
+
+            maxAmmo = 0;
+        }
     }
 
     void FixedUpdate()
     {
-        //movement
-        horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
+        //movement (but only let the player move, if he can / has one or more lives
+        if (canMove)
+        {
+            horizontalInput = Input.GetAxis("Horizontal");
+            transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
+        }
 
         //player map boundaries
         if (transform.position.x < -xRange)
