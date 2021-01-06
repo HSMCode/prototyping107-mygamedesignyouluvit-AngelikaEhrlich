@@ -7,12 +7,10 @@ public class DestroyOutOfBounds : MonoBehaviour
     private float topBound = 30;
     private float lowerBound = -1;
 
-   // public GameObject player;
-
     // Start is called before the first frame update
     void Start()
     {
-        //player = GameObject.Find("player");
+
     }
 
     // Update is called once per frame
@@ -26,28 +24,18 @@ public class DestroyOutOfBounds : MonoBehaviour
 
         else if (transform.position.z < lowerBound)
         {
-            Destroy(gameObject);
-            KeepLives.lives -= 1;
-
             //check to see if we have any lives left
-            if (KeepLives.lives < 1)
+            if (KeepLives.lives != 0)
             {
-                //out of lives
-                GameOver ();
+                Destroy(gameObject);
+                KeepLives.lives -= 1;
+            }
+            else
+            {
+                Destroy(gameObject);
+                KeepLives.lives = 0;
             }
         }
-    }
-
-    //gameOver function
-    void GameOver()
-    {
-        Debug.Log("out of lives");
-
-        //make player disappear and be disabled
-        //player.SetActive(false);
-
-        //set lives score to 0
-        KeepLives.lives = 0;
     }
 
 }
