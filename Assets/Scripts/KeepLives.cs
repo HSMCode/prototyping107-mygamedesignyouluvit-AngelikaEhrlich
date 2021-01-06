@@ -20,6 +20,6 @@ public class KeepLives : MonoBehaviour
 
     private void OnGUI()
     {
-        GUI.Box(new Rect(100, 200, 100, 100), lives.ToString());
+        GUI.Box(new Rect(1460, 10, 100, 100), lives.ToString());
     }
 }
