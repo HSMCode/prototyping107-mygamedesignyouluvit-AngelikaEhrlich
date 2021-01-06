@@ -2,20 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour
 {
     public float horizontalInput;
     public float speed = 5.0f;
     public float xRange = 10.0f;
 
+    private float myTime = 0.0f;
     float nextTimeToFire;
 
     public GameObject projectilePrefab;
 
+
+    [Header("Reload")]
+
+    public int maxAmmo = 2;
+    private int currentAmmo;
+    public float reloadTime = 1f;
+    private bool isReloading = false;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-
+        currentAmmo = maxAmmo;
     }
 
     // Update is called once per frame
@@ -35,19 +47,45 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
-        
+
+        if(isReloading)
+        {
+            return;
+        }
+
+        if(currentAmmo <= 0)
+        {
+            StartCoroutine(Reload());
+            return;
+        }
+
         //shoot projectile aka snowball
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= nextTimeToFire)
-        { 
+        if (Input.GetKeyDown(KeyCode.Space) && myTime >= nextTimeToFire)
+        {
             Shoot();
         }
-       
+
     }
 
     void Shoot()
-    {  
-            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
-            nextTimeToFire = Time.time + .2f;
+    {
+        nextTimeToFire = nextTimeToFire - myTime;
+        Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        currentAmmo--;
+    }
+
+    IEnumerator Reload()
+    {
+        isReloading = true;
+
+        Debug.Log("Reloading...");
+
+        yield return new WaitForSeconds(reloadTime);
+
+        currentAmmo = maxAmmo;
+
+        isReloading = false;
+
     }
 
 }

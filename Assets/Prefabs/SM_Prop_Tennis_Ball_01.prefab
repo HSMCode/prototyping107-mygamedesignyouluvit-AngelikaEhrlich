@@ -96,7 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 28
-  player: {fileID: 0}
+  scoreText: {fileID: 3092379440470309374, guid: ab651f1eb1024c147988c875a1c58cea,
+    type: 3}
 --- !u!114 &1113889499389827825
 MonoBehaviour:
   m_ObjectHideFlags: 0
