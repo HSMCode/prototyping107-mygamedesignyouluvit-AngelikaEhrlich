@@ -12,7 +12,9 @@ public class KeepLives : MonoBehaviour
     void Start()
     {
         GameOverPanel.SetActive(false);
-    }
+
+        lives = 5;   
+}
 
     // Update is called once per frame
     void Update()
