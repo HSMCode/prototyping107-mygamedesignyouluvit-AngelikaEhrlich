@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     public float reloadTime = 1f;
     private bool isReloading = false;
 
+    AudioSource makesnowball;
+
     AudioSource snowsteps;
     private bool isMoving = false;
 
@@ -34,6 +36,8 @@ public class PlayerController : MonoBehaviour
         currentAmmo = maxAmmo;
 
         snowsteps = GetComponent<AudioSource>();
+
+        makesnowball = GetComponent<AudioSource>();
 
         canMove = true;
     }
@@ -109,10 +113,17 @@ public class PlayerController : MonoBehaviour
         //reloading
         if(isReloading)
         {
+            if (!makesnowball.isPlaying)
+            makesnowball.Play();
+
             return;
         }
+        else
+        {
+            makesnowball.Stop();
+        }
 
-        if(currentAmmo <= 0)
+        if (currentAmmo <= 0)
         {
             StartCoroutine(Reload());
             return;
