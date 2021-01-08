@@ -68,11 +68,13 @@ public class PlayerController : MonoBehaviour
         //if the player is moving, play snowsteps sound
         if (isMoving)
         {
+            //Debug.Log("play snowsteps..");
             if (!snowsteps.isPlaying)
                 snowsteps.Play();
         }
         else
         {
+            //Debug.Log("stop snowsteps..");
             snowsteps.Stop();
         }
 
@@ -150,7 +152,7 @@ public class PlayerController : MonoBehaviour
     {
         isReloading = true;
 
-        Debug.Log("Reloading...");
+        //Debug.Log("Reloading...");
 
         yield return new WaitForSeconds(reloadTime);
 
