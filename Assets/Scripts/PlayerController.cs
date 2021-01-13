@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class PlayerController : MonoBehaviour
@@ -29,11 +30,15 @@ public class PlayerController : MonoBehaviour
     AudioSource snowsteps;
     private bool isMoving = false;
 
+    public Text snowballText;       //link to the snowball text on the screen
+
 
     // Start is called before the first frame update
     void Start()
     {
         currentAmmo = maxAmmo;
+
+        snowballText.text = currentAmmo.ToString();
 
         snowsteps = GetComponent<AudioSource>();
 
@@ -145,6 +150,9 @@ public class PlayerController : MonoBehaviour
         nextTimeToFire = nextTimeToFire - myTime;
         Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         currentAmmo--;
+
+        //update ammo text on screen
+        snowballText.text = currentAmmo.ToString();
     }
 
     //reload
@@ -159,6 +167,9 @@ public class PlayerController : MonoBehaviour
         currentAmmo = maxAmmo;
 
         isReloading = false;
+
+        //update ammo text on screen
+        snowballText.text = currentAmmo.ToString();
 
     }
 
