@@ -30,7 +30,18 @@ public class KeepLives : MonoBehaviour
     //lives box
     private void OnGUI()
     {
-        GUI.Box(new Rect(1460, 10, 100, 100), lives.ToString());
+        //set font size
+        GUI.skin.box.fontSize = 45;
+
+        //set box color
+        GUI.backgroundColor = new Color(0, 0, 0, 0);
+        //GUI.backgroundColor = Color.gray;
+
+        //set font color
+        GUI.contentColor = Color.red;
+
+        //set box size, position, and text
+        GUI.Box(new Rect(30, 100, 400, 60), "Lives: " + lives.ToString());
     }
 
 
