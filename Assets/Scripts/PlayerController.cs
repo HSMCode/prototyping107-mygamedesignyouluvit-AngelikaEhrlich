@@ -27,9 +27,6 @@ public class PlayerController : MonoBehaviour
 
     AudioSource makesnowball;
 
-    AudioSource snowsteps;
-    private bool isMoving = false;
-
     public Text snowballText;       //link to the snowball text on the screen
 
 
@@ -39,8 +36,6 @@ public class PlayerController : MonoBehaviour
         currentAmmo = maxAmmo;
 
         snowballText.text = currentAmmo.ToString();
-
-        snowsteps = GetComponent<AudioSource>();
 
         makesnowball = GetComponent<AudioSource>();
 
@@ -60,29 +55,6 @@ public class PlayerController : MonoBehaviour
             canMove = false;
         }
 
-        //determines when the player is moving
-        if (horizontalInput != 0)
-        {
-            isMoving = true;
-        }
-        else
-        {
-            isMoving = false;
-        }
-
-        //if the player is moving, play snowsteps sound
-        if (isMoving)
-        {
-            //Debug.Log("play snowsteps..");
-            if (!snowsteps.isPlaying)
-                snowsteps.Play();
-        }
-        else
-        {
-            //Debug.Log("stop snowsteps..");
-            snowsteps.Stop();
-        }
-
         if (GameOverPanel.activeSelf)
         {
             //Debug.Log("gameoverpanel..");
@@ -94,6 +66,8 @@ public class PlayerController : MonoBehaviour
             currentAmmo = 0;
 
             maxAmmo = 0;
+
+            makesnowball.Stop();
         }
     }
 
