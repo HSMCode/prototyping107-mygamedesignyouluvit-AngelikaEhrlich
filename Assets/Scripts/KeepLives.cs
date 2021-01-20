@@ -33,15 +33,17 @@ public class KeepLives : MonoBehaviour
         //set font size
         GUI.skin.box.fontSize = 45;
 
-        //set box color
-        GUI.backgroundColor = new Color(0, 0, 0, 0);
-        //GUI.backgroundColor = Color.gray;
-
         //set font color
         GUI.contentColor = Color.red;
 
+        //set text alignment to the left
+        GUI.skin.box.alignment = TextAnchor.UpperLeft;
+
+        //set box color
+        GUI.backgroundColor = new Color(0, 0, 0, 0);
+
         //set box size, position, and text
-        GUI.Box(new Rect(30, 100, 400, 60), "Lives: " + lives.ToString());
+        GUI.Box(new Rect(40, 110, 250, 60), "Lives: " + lives.ToString());
     }
 
 
