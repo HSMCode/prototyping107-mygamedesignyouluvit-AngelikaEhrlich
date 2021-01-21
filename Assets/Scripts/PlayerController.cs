@@ -6,28 +6,28 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public float horizontalInput;
-    public float speed = 5.0f;
-    public float xRange = 10.0f;
+    private float horizontalInput;
+    private float speed = 15f;
+    private float xRange = 13f;
+
+    private bool canMove = true;
+    public GameObject GameOverPanel;
 
     private float myTime = 0.0f;
     float nextTimeToFire;
 
     public GameObject projectilePrefab;
 
-    public GameObject GameOverPanel;
-    private bool canMove = true;
-
     [Header("Reload")]
 
-    public int maxAmmo = 2;
+    private int maxAmmo = 5;
     private int currentAmmo;
-    public float reloadTime = 1f;
+    private float reloadTime = 3f;
     private bool isReloading = false;
 
     AudioSource makesnowball;
 
-    public Text snowballText;       //link to the snowball text on the screen
+    public Text snowballText;       //link to the snowball ammo text on the screen
 
 
     // Start is called before the first frame update
@@ -57,15 +57,14 @@ public class PlayerController : MonoBehaviour
 
         if (GameOverPanel.activeSelf)
         {
-            //Debug.Log("gameoverpanel..");
-
             canMove = false;
 
             horizontalInput = 0;
 
             currentAmmo = 0;
-
             maxAmmo = 0;
+
+            snowballText.text = currentAmmo.ToString();
 
             makesnowball.Stop();
         }
@@ -144,7 +143,6 @@ public class PlayerController : MonoBehaviour
 
         //update ammo text on screen
         snowballText.text = currentAmmo.ToString();
-
     }
 
 }

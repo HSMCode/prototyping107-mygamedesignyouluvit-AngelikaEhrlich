@@ -16,12 +16,6 @@ public class SpawnManager : MonoBehaviour
         InvokeRepeating("SpawnRandomPenguin", startDelay, spawnInterval);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void SpawnRandomPenguin()
     {
         int penguinIndex = Random.Range(0, penguinPrefabs.Length);

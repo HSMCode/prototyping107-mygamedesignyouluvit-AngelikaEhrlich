@@ -9,18 +9,6 @@ public class KeepScore : MonoBehaviour
    
     public Font font;            //link to the font
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
    private void OnGUI()
    {
         //set font
@@ -30,7 +18,7 @@ public class KeepScore : MonoBehaviour
         GUI.skin.box.fontSize = 45;
 
         //set font color
-        GUI.contentColor = Color.blue * Color.white;
+        GUI.contentColor = Color.blue;
 
         //set text alignment to the left
         GUI.skin.box.alignment = TextAnchor.UpperLeft;
